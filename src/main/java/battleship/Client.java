@@ -216,8 +216,11 @@ public final class Client extends JFrame {
             case "TIMEOUT" -> append("Hết giờ. Chuyển lượt cho " + a[1] + ".");
             case "STATE" -> { phase = a[1]; ownState = a[2]; enemyState = a[3]; turn = a[4]; deadline = Long.parseLong(a[5]); attackPending = false; }
             case "SHOT" -> {
-                String result = a[4].equals("MISS") ? "trượt" : a[4].equals("HIT") ? "trúng tàu" : "đánh chìm tàu dài " + a[4].substring("SUNK-".length()) + " ô";
-                append(a[1] + " bắn " + (char) ('A' + Integer.parseInt(a[2])) + (Integer.parseInt(a[3]) + 1) + ": " + result);
+                String result = a[4];
+                if (result.startsWith("SUNK-")) {
+                    int length = Integer.parseInt(result.substring("SUNK-".length()));
+                    append(a[1] + " đã đánh chìm một tàu dài " + length + " ô!");
+                }
             }
             case "OVER" -> {
                 append((name.equals(a[1]) ? "BẠN LÀ NGƯỜI CHIẾN THẮNG!" : "Bạn đã thua.") + " Người thắng: " + a[1] + ". Lý do: " + a[2] + ". " + (a[3].equals("SAVED") ? "Kết quả đã lưu vào SQL Server." : "CẢNH BÁO: chưa lưu được kết quả vào SQL Server."));
