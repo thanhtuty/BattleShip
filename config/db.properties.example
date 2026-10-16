@@ -1,0 +1,5 @@
+﻿# Mỗi thành viên copy file này thành config/db.properties rồi sửa theo SQL Server trên máy mình.
+# Với SQL Server Express tên SQLEXPRESS, SQL Server Browser cần chạy.
+db.url=jdbc:sqlserver://localhost:1433;databaseName=BattleShipDB;encrypt=true;trustServerCertificate=true
+db.username=battleship_app
+db.password=Change_This_Password_123!
