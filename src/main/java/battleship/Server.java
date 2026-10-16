@@ -162,7 +162,7 @@ public final class Server implements AutoCloseable {
                 Session target=m.other(s);Board targetBoard=m.game.board(target.name),previous=targetBoard.copy();
                 String result=targetBoard.shoot(row,col);
                 boolean won=gameManager.isOver(targetBoard);
-                String next=won?s.name:TurnManager.next(s.name,m.game.playerA,m.game.playerB);
+                String next=TurnManager.afterShot(s.name,target.name,result);
                 long deadline=won?System.currentTimeMillis()+REMATCH_MS:TurnManager.deadline();
                 try{
                     if(won)store.recordWinningShot(m.game.id,s.userId,target.userId,
