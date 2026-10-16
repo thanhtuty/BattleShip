@@ -30,7 +30,10 @@ public final class SelfTest {
         check(board.defeated(),"Chưa kết thúc khi chìm hết tàu");
         check(!before.defeated()&&before.view(true).contains("1"),"Bản sao Board không độc lập");
         for(int i=0;i<100;i++)check(Board.parse(Board.randomPlacement(new Random(i))).ready(),"Xếp ngẫu nhiên sai");
-        check(TurnManager.next("alice","alice","bob").equals("bob"),"Đổi lượt sai");
+        check(TurnManager.next("alice","alice","bob").equals("bob"),"Đổi lượt timeout sai");
+        check(TurnManager.afterShot("alice","bob","MISS").equals("bob"),"Bắn trượt phải chuyển lượt");
+        check(TurnManager.afterShot("alice","bob","HIT").equals("alice"),"Bắn trúng phải giữ lượt");
+        check(TurnManager.afterShot("alice","bob","SUNK-3").equals("alice"),"Đánh chìm tàu phải giữ lượt");
         System.out.println("PASS: Wire, Board 6x6, 4 ships, secrecy, hit/sunk, duplicate shot, random placement, turn order");
     }
 }
