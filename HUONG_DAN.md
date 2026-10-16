@@ -89,7 +89,8 @@ Các bảng chính:
 
 - Bàn 6×6; 4 tàu dài 2, 3, 4 và 5 ô; đặt ngang/dọc, không được chồng hoặc vượt bàn.
 - Mời, đồng ý/từ chối, Ready hai phía, bắt đầu trận; lượt tối đa 15 giây.
-- Kết quả bắn Miss/Hit/Sunk; kết thúc khi toàn bộ tàu bị đánh chìm; cập nhật điểm, thắng/thua, tổng trận, Ranking và History.
+- Bắn trượt thì chuyển lượt; bắn trúng hoặc đánh chìm một tàu thì người bắn được bắn tiếp. Chỉ hiện thông báo khi có người đánh chìm hẳn một tàu.
+- Kết thúc khi toàn bộ tàu của một người bị đánh chìm; cập nhật điểm, thắng/thua, tổng trận, Ranking và History.
 - Server giữ luật và trạng thái trận; Client không được tự quyết định kết quả. Tàu đối thủ chưa bị bắn được che khỏi Client.
 - Hộp thông báo căn giữa, tự đóng sau 3 giây hoặc đóng bằng OK/X.
 
